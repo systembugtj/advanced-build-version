@@ -1,11 +1,13 @@
 apply plugin: 'java'
+apply plugin: "maven"
+apply plugin: "idea"
 apply plugin: 'groovy'
 
 group = GROUP
 version = VERSION_NAME
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.8'
+    gradleVersion = '2.14.1'
 }
 
 sourceCompatibility = 1.7
@@ -21,6 +23,7 @@ dependencies {
     compile 'com.android.tools.build:gradle:0.14.0'
 
     testCompile 'org.easytesting:fest-assert:1.4'
+    testCompile 'org.testng:testng:6.8'
 }
 
 test {

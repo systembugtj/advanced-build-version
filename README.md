@@ -167,3 +167,9 @@ advancedVersioning {
 
 If your app name is MyApp with 4.6.1 version name the output apk file name will be: 
 `MyApp-google-play-4.6.1.apk`
+
+##debug plugin
+```shell
+export GRADLE_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+```
+Then set remote debug in intellij at 5005

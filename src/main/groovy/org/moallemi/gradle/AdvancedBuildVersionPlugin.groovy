@@ -7,7 +7,9 @@ import org.moallemi.gradle.internal.VersionCodeType
 
 class AdvancedBuildVersionPlugin implements Plugin<Project> {
 
+    @Override
     void apply(Project project) {
+
         def androidGradlePlugin = getAndroidPluginVersion(project)
         if (androidGradlePlugin == null) {
             throw new IllegalStateException("The Android Gradle plugin not found. the " +

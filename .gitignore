@@ -11,3 +11,5 @@ classes
 /gradle.properties
 bintray_push.gradle
 maven_push.gradle
+gradle-advanced-build-version.ipr
+gradle-advanced-build-version.iws

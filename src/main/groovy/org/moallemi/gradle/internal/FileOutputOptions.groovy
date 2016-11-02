@@ -43,21 +43,12 @@ class FileOutputOptions {
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 if (variant.buildType.zipAlignEnabled) {
                     output.outputFile = new File(outputFile.parent, fileName + ".apk")
-                } else {
-                    output.outputFile = new File(outputFile.parent, fileName + "-unaligned.apk")
+                }
+                def unaligned = output.packageApplication.outputFile;
+                if (unaligned.getName().contains("unaligned")) {
+                    output.packageApplication.outputFile = new File(outputFile.parent, fileName + "-unaligned.apk")
                 }
             }
         }
-        def androidGradlePlugin = AdvancedBuildVersionPlugin.getAndroidPluginVersion(project)
-        if (androidGradlePlugin != null && androidGradlePlugin.version.equals("1.3.0")) {
-            // android gradle 1.3.0 bug: https://code.google.com/p/android/issues/detail?id=182248
-            project.getLogger().log(LogLevel.WARN, "could not make unaligned file. You should use android gradle 1.3.1 and above")
-            return;
-        }
-
-        def file = variant.outputs[0].packageApplication.outputFile
-        variant.outputs[0].packageApplication.outputFile =
-            new File(file.parent, fileName + "-unaligned.apk")
-
     }
 }

@@ -20,7 +20,7 @@ apply plugin: "maven-publish"
 apply plugin: 'com.jfrog.artifactory'
 
 group = "me.systembug.gradle"
-version = "2.0.0"
+version = "1.6.0"
 
 
 task wrapper(type: Wrapper) {
